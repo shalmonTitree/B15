@@ -1,0 +1,27 @@
+Time: O(n3)
+Space: O(1)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 3};
+    int n = 3;
+
+    int totalSum = 0;
+
+    for (int i = 0; i < n; i++) {          // start index
+        for (int j = i; j < n; j++) {      // end index
+            int subarraySum = 0;
+
+            for (int k = i; k <= j; k++) { // calculate sum
+                subarraySum += arr[k];
+            }
+
+            totalSum += subarraySum;
+        }
+    }
+
+    cout << "Sum of all subarrays = " << totalSum;
+    return 0;
+}
