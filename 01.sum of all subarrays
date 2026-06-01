@@ -25,3 +25,56 @@ int main() {
     cout << "Sum of all subarrays = " << totalSum;
     return 0;
 }
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 3};
+    int n = 3;
+
+    int totalSum = 0;
+
+    for (int i = 0; i < n; i++) {
+        int currentSum = 0;
+
+        for (int j = i; j < n; j++) {
+            currentSum += arr[j];
+            totalSum += currentSum;
+        }
+    }
+
+    cout << "Sum of all subarrays = " << totalSum;
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Time Complexity: O(N)
+Space Complexity: O(1)
+
+#include <iostream>
+using namespace std;
+
+long long sumOfAllSubarrays(int arr[], int N) {
+    long long totalSum = 0;
+
+    for (int i = 0; i < N; i++) {
+        totalSum += 1LL * arr[i] * (i + 1) * (N - i);
+    }
+
+    return totalSum;
+}
+
+int main() {
+    int arr[] = {1, 2, 3};
+    int N = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Sum of all subarrays = "
+         << sumOfAllSubarrays(arr, N) << endl;
+
+    return 0;
+}
