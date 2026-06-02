@@ -1,0 +1,55 @@
+Given two numbers X and Y.
+
+Print the following in three separate lines:
+
+1. X + Y = result of addition
+2. X * Y = result of multiplication
+3. X - Y = result of subtraction
+
+Input Format
+One line containing two integers X and Y separated by a space.
+
+Output Format
+Print 3 lines:
+
+X + Y = sum
+X * Y = product
+X - Y = difference
+
+Constraints
+1 ≤ X, Y ≤ 100000
+
+Example:
+
+Input:
+5 10
+
+Output:
+5 + 10 = 15
+5 * 10 = 50
+5 - 10 = -5
+
+Explanation:
+
+* Addition: 5 + 10 = 15
+* Multiplication: 5 * 10 = 50
+* Subtraction: 5 - 10 = -5
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);cout.tie(0);
+
+  long long int a,b;
+  cin>>a>>b;
+  cout<<a<<" + "<<b<<" = "<<(a+b)<<endl;
+  cout<<a<<" * "<<b<<" = "<<(a*b)<<endl;
+  cout<<a<<" - "<<b<<" = "<<(a-b)<<endl;
+
+
+}
