@@ -1,0 +1,107 @@
+Given a character X.
+
+Determine whether X is:
+
+* A digit ('0'–'9')
+* An uppercase letter ('A'–'Z')
+* A lowercase letter ('a'–'z')
+
+Output Rules:
+
+* If X is a digit, print:
+
+IS DIGIT
+
+* Otherwise, print:
+
+ALPHA
+
+and on the next line:
+
+* IS CAPITAL (if X is an uppercase letter)
+* IS SMALL (if X is a lowercase letter)
+
+Input Format
+A single character X.
+
+Output Format
+
+If X is a digit:
+IS DIGIT
+
+If X is a letter:
+ALPHA
+IS CAPITAL
+
+or
+
+ALPHA
+IS SMALL
+
+Constraints
+X is guaranteed to be one of:
+
+* '0' to '9'
+* 'A' to 'Z'
+* 'a' to 'z'
+
+Example 1:
+
+Input:
+A
+
+Output:
+ALPHA
+IS CAPITAL
+
+Example 2:
+
+Input:
+a
+
+Output:
+ALPHA
+IS SMALL
+
+Example 3:
+
+Input:
+9
+
+Output:
+IS DIGIT
+
+ASCII Reference:
+
+* '0' = 48, ..., '9' = 57
+* 'A' = 65, ..., 'Z' = 90
+* 'a' = 97, ..., 'z' = 122
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);cout.tie(0);
+
+  char ch;
+  cin>>ch;
+
+  if(ch>='A' && ch<='Z')
+  {
+    cout<<"ALPHA"<<endl;
+    cout<<"IS CAPITAL"<<endl;
+  }
+    if(ch>='a' && ch<='z')
+  {
+    cout<<"ALPHA"<<endl;
+    cout<<"IS SMALL"<<endl;
+  }
+    if(ch>='0' && ch<='9')
+  {
+    cout<<"IS DIGIT"<<endl;
+    
+  }
+}
