@@ -1,0 +1,59 @@
+Read five space-separated values in this order:
+
+1. int
+2. long long
+3. char
+4. float
+5. double
+
+Print each value on a new line in the same order as the input.
+
+Input Format
+One line containing:
+int long long char float double
+
+Output Format
+Print each value on a separate line.
+
+Constraints
+-2147483648 ≤ int ≤ 2147483647
+-2^63 ≤ long long ≤ 2^63 - 1
+char: valid ASCII character
+float and double follow IEEE 754 standards
+
+Example Input:
+3 12345678912345 a 334.23 14049.30493
+
+Example Output:
+3
+12345678912345
+a
+334.23
+14049.3
+
+Note:
+Read the values using their respective data types and print them exactly in the same order, each on a new line.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);cout.tie(0);
+
+  int a;
+  long long b;
+  char c;
+  float d;
+  double e;
+  cin>>a>>b>>c>>d>>e;
+  cout<<a<<endl;
+  cout<<b<<endl;
+  cout<<c<<endl;
+  cout<<d<<endl;
+  cout<<e<<endl;
+
+
+}
