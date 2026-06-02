@@ -1,0 +1,120 @@
+Description
+Given a number N corresponding to a person's age (in days). Print his age in years, months, and days, followed by its respective messages "years", "months", and "days".
+
+Note: Consider that a whole year has 365 days and 30 days per month.
+
+Input Format
+The first line contains an integer T, the number of test cases.
+For each test case:
+The first line contains an integer N.
+
+Output Format
+For each test case, print the output as shown in the sample examples.
+
+Constraints
+1 ≤ T ≤ 10
+1 ≤ N ≤ 10⁶
+
+Sample Input 1
+
+```
+1
+400
+```
+
+Sample Output 1
+
+```
+1 years
+1 months
+5 days
+```
+
+Sample Input 2
+
+```
+1
+30
+```
+
+Sample Output 2
+
+```
+0 years
+1 months
+0 days
+```
+
+Sample Input 3
+
+```
+2
+800
+10
+```
+
+Sample Output 3
+
+```
+2 years
+2 months
+10 days
+0 years
+0 months
+10 days
+```
+
+Note
+
+Sample Input 1 Explanation:
+For the input N = 400:
+
+Years:
+Y = ⌊400 / 365⌋ = 1
+
+Remaining days:
+N = 400 mod 365 = 35
+
+Months:
+M = ⌊35 / 30⌋ = 1
+
+Days:
+D = 35 mod 30 = 5
+
+Thus, the output is:
+
+```
+1 years
+1 months
+5 days
+```
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);cout.tie(0);
+
+int t;
+cin>>t;
+while(t--)
+{
+ 
+   int n;
+   cin>>n;
+   int year = n/365;
+   n = n%365;
+   int m = n/30;
+   n = n%30;
+   int d = n;
+   cout<<year<<" years"<<endl;
+   cout<<m<<" months"<<endl;
+   cout<<d<<" days"<<endl;
+
+   
+}
+   
+}
