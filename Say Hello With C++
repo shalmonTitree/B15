@@ -1,0 +1,48 @@
+Given a name S. Print "Hello, " followed by the name.
+
+Input Format
+Only one line containing a string S.
+
+Output Format
+Print "Hello, " without quotes, then print the name.
+
+Constraints
+1 ≤ |S| ≤ 100
+
+Example:
+Input:
+Jane
+
+Output:
+Hello, Jane
+
+Example:
+Input:
+Bruce
+
+Output:
+Hello, Bruce
+
+Example:
+Input:
+Peter
+
+Output:
+Hello, Peter
+
+Note:
+The program should output "Hello, " followed by the provided name.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);cout.tie(0);
+
+  string s;
+  cin>>s;
+  cout<<"Hello, "<<s<<endl;
+
+}
