@@ -1,0 +1,96 @@
+Given the coordinates (X, Y) of a point in a 2D plane, determine its location.
+
+Rules:
+
+* If X = 0 and Y = 0, print:
+  Origem
+
+* If Y = 0 and X ≠ 0, print:
+  Eixo X
+
+* If X = 0 and Y ≠ 0, print:
+  Eixo Y
+
+* Otherwise:
+
+  * Print Q1 if X > 0 and Y > 0
+  * Print Q2 if X < 0 and Y > 0
+  * Print Q3 if X < 0 and Y < 0
+  * Print Q4 if X > 0 and Y < 0
+
+Input Format
+
+* The first line contains an integer T, the number of test cases.
+* Each of the next T lines contains two space-separated floating-point numbers X and Y.
+
+Output Format
+
+For each test case, print the corresponding result on a new line.
+
+Constraints
+
+1 ≤ T ≤ 10⁶
+-1000 ≤ X, Y ≤ 1000
+
+Example 1:
+
+Input:
+1
+4.5 -2.2
+
+Output:
+Q4
+
+Explanation:
+X > 0 and Y < 0, so the point lies in Quadrant 4.
+
+Example 2:
+
+Input:
+1
+0.1 0.1
+
+Output:
+Q1
+
+Explanation:
+X > 0 and Y > 0, so the point lies in Quadrant 1.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int t;
+    cin >> t;
+
+    while (t--)
+    {
+        double x, y;
+        cin >> x >> y;
+        if (x == 0 && y == 0) {
+            cout << "Origem" << "\n";
+        } else if (x == 0) {
+            cout << "Eixo Y" << "\n";
+        } else if (y == 0) {
+            cout << "Eixo X" << "\n";
+        } else {
+            if (x>0 && y>0) {
+                cout << "Q1" << "\n";
+            } else if (x<0 && y>0) {
+                cout << "Q2" << "\n";
+            } else if (x<0 && y<0) {
+                cout << "Q3" << "\n";
+            } else {
+                cout << "Q4" << "\n";
+            }
+        }
+    }
+
+    return 0;
+}
