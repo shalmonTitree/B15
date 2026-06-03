@@ -1,0 +1,68 @@
+Time Limit: 0.5 sec
+Memory: 256 MB
+
+Description
+Given a number N. Print the first N numbers of the Fibonacci sequence.
+
+Note: In order to create the Fibonacci sequence, use the following function:
+
+fib(1) = 0
+
+fib(2) = 1
+
+fib(N) = fib(N − 1) + fib(N − 2) for N > 2
+
+Input Format
+Only one line containing a number N.
+
+Output Format
+Print the first N numbers from the Fibonacci Sequence.
+
+Constraints
+1 ≤ N ≤ 45
+
+Sample Input 1
+7
+
+Sample Output 1
+0 1 1 2 3 5 8
+
+Note
+For N = 7, the first seven numbers of the Fibonacci sequence are 0, 1, 1, 2, 3, 5, 8.
+
+
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+void fib(int n)
+{
+    int t1 = 0;
+    int t2 = 1;
+    int nxtterm = 0;
+    for(int i = 1; i <= n; i++)
+    {
+        if(i == 1)
+        {
+            cout<<t1<<" ";
+            continue;
+        }
+        if(i == 2)
+        {
+            cout<<t2<<" ";
+            continue;
+        }
+
+        nxtterm = t1 + t2;
+        t1 = t2;
+        t2 = nxtterm;
+        cout<<nxtterm<<" ";
+    }
+}
+int main() {
+   int n;
+   cin>>n;
+   fib(n);
+
+}
