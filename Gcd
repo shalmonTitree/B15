@@ -1,0 +1,103 @@
+Time Limit: 0.5 sec
+Memory: 256 MB
+
+Description
+Given two integers A and B, print the greatest common divisor (GCD) of (A, B).
+
+Note:
+The greatest common divisor (GCD) of two or more integers, which are not all zero, is the largest positive integer that divides each of the integers.
+
+Example
+
+Input:
+A = 8, B = 12
+
+Output:
+4
+
+Explanation:
+
+The numbers that divide both 8 and 12 are 1, 2, 4.
+
+The largest one is 4, which is the GCD.
+
+Input Format
+Only one line containing two numbers A and B.
+
+Output Format
+Print the GCD of A and B.
+
+Constraints
+1 ≤ A, B ≤ 10³
+
+Sample Input 1
+12 8
+
+Sample Output 1
+4
+
+Sample Input 2
+3 7
+
+Sample Output 2
+1
+
+Sample Input 3
+5 10
+
+Sample Output 3
+5
+
+Note
+Explanation of Sample Input
+
+Sample 1:
+
+Input numbers: 12 and 8
+Common divisors: 1, 2, 4
+Greatest Common Divisor (GCD): 4
+
+Consider the numbers 54 and 24:
+
+Divisors of 54:
+1, 2, 3, 6, 9, 18, 27, 54
+
+Divisors of 24:
+1, 2, 3, 4, 6, 8, 12, 24
+
+Common divisors of 54 and 24:
+1, 2, 3, 6
+
+Greatest Common Divisor:
+6
+
+Thus, we write:
+
+gcd(54, 24) = 6
+
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int a,b;
+    cin>>a>>b;
+    cout<<gcd(a,b)<<endl;
+    
+
+    return 0;
+}
