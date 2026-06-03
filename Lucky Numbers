@@ -1,0 +1,90 @@
+Time Limit: 0.5 sec
+Memory: 256 MB
+
+Description
+Given two numbers A and B. Print all lucky numbers between A and B inclusive.
+
+Note:
+
+A lucky number is any positive number whose decimal representation contains only the digits 4 and 7.
+
+For example: numbers 4, 7, 47, and 744 are lucky, whereas numbers 5, 17, and 174 are not.
+
+Input Format
+A single line containing two integers A and B.
+
+Output Format
+Print all lucky numbers between A and B inclusive, separated by a space, in increasing order.
+
+If there are no lucky numbers, print -1.
+
+Constraints
+1 ≤ A ≤ B ≤ 10⁵
+
+Sample Input 1
+4 20
+
+Sample Output 1
+4 7
+
+Sample Input 2
+8 15
+
+Sample Output 2
+-1
+
+Note
+Sample Input Explanation:
+
+Sample Input 1:
+
+The lucky numbers between 4 and 20 are 4 and 7.
+
+Sample Input 2:
+
+There are no lucky numbers between 8 and 15.
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool solve(int n) 
+{
+    while(n>0)
+    {
+        int d = n%10;
+        if(d!=4 && d!=7)
+        {
+            return 0;
+        }
+        n/=10;
+    }
+    return 1;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(0);
+
+
+    int a,b;
+    cin>>a>>b;
+    bool found = false;
+    for(int i = a; i <= b; i++)
+    {
+        if(solve(i))
+        {
+            found = true;
+            cout<<i<<" ";
+        }
+    }
+    if(!found)
+    {
+        cout<<"-1\n";
+    }
+    
+
+    return 0;
+}
