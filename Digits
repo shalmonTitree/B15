@@ -1,0 +1,79 @@
+Time Limit: 0.5 sec
+Memory: 256 MB
+
+Description
+Given a number N.
+
+Print the digits of that number from right to left separated by space.
+
+Input Format
+First line contains a number T — number of test cases.
+Next T lines will contain a number N.
+
+Output Format
+For each test case, print a single line containing the digits of the number separated by space.
+
+Constraints
+1 ≤ T ≤ 10
+0 ≤ N ≤ 10⁹
+
+Sample Input 1
+4
+121
+39
+123456
+1200
+
+Sample Output 1
+1 2 1
+9 3
+6 5 4 3 2 1
+0 0 2 1
+
+Note
+Explanation:
+
+For the first test case, N = 121, the digits from right to left are 1 2 1.
+
+For the second test case, N = 39, the digits are 9 3.
+
+For the third test case, N = 123456, the digits are 6 5 4 3 2 1.
+
+For the fourth test case, N = 1200, the digits are 0 0 2 1.
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);cout.tie(0);
+
+   int t;
+   cin>>t;
+   while(t--)
+   {
+      int n;
+     cin>>n;
+     if(n==0)
+     {
+        cout<<"0";
+     }
+   
+   while(n!=0)
+   {
+      int val = n%10;
+      cout<<val;
+      if(n>1)
+      {
+         cout<<" ";
+      }
+      
+      n = n/10;
+   }
+   cout<<endl;
+   }
+   
+}
