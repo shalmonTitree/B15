@@ -1,0 +1,63 @@
+Factorial loop  : O(n)
+Binary exponent : O(log n)
+
+Total TC        : O(n)
+SC              : O(log n)   // recursion stack
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+int mod = 1e9 + 7;
+#define endl "\n"   // optional, better to avoid redefining endl
+
+int binpow(int a, int b, int c) {
+    
+
+    if(b == 0)
+    {
+        return 1;
+    }
+
+    if(b % 2 == 1)
+    {
+        return (a*binpow(a,b-1,c))%c;
+    }
+    else
+    {
+        int temp = binpow(a,b/2,c);
+        return (temp*temp)%c;
+
+    }
+}
+
+int inverse(int a,int p)
+{
+    return binpow(a,p-2,p);
+}
+void solve() {
+    int n;
+    cin>>n;
+
+    int num = 1;
+    for(int i = 1; i <=n; i++)
+    {
+        num = num * i % mod;
+    }
+    int den = binpow(2,n,mod);
+    int ans = num * inverse(den,mod) % mod;
+
+    cout<<ans<<endl;
+}
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t = 1;
+ //   cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
