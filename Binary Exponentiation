@@ -1,0 +1,41 @@
+//TC : O(log b) 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+ll binaryExponentiation(ll a, ll b, ll mod) {
+    ll result = 1;
+
+    a %= mod;
+
+    while (b > 0) {
+
+        // If b is odd
+        if (b & 1) {
+            result = (result * a) % mod;
+        }
+
+        // Square the base
+        a = (a * a) % mod;
+
+        // Divide exponent by 2
+        b >>= 1;
+    }
+
+    return result;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    ll a, b, mod;
+
+    cin >> a >> b >> mod;
+
+    cout << binaryExponentiation(a, b, mod) << "\n";
+
+    return 0;
+}
