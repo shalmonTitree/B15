@@ -1,0 +1,116 @@
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+For a given integer N, print the pattern as shown in the examples below.
+
+Input Format
+The first line of the input contains one integer T - the number of test cases. Then T test cases follow.
+The first line of each test case contains the integer N.
+
+Output Format
+For each test case, print the desired pattern. Add an empty line after each test case.
+
+Constraints
+1 ≤ T ≤ 10
+1 ≤ N ≤ 10²
+
+Sample Input 1
+2
+3
+4
+
+Sample Output 1
+1
+1 2 1
+1 2 3 2 1
+
+```
+  1       
+1 2 1     
+```
+
+1 2 3 2 1
+1 2 3 4 3 2 1
+
+Note
+
+First Test Case (N = 3):
+
+```
+1     
+```
+
+1 2 1
+1 2 3 2 1
+
+Row 1: Two spaces, then '1'
+Row 2: One space, then '1 2 1'
+Row 3: No spaces, then '1 2 3 2 1'
+
+Second Test Case (N = 4):
+
+```
+  1       
+1 2 1     
+```
+
+1 2 3 2 1
+1 2 3 4 3 2 1
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+
+    int i = 1;
+
+    while (i <= n) {
+
+        // leading spaces
+        int space = 1;
+
+        while (space <= n - i) {
+            cout << "  ";
+            space++;
+        }
+
+        // increasing numbers
+        int j = 1;
+
+        while (j <= i) {
+            cout << j << " ";
+            j++;
+        }
+
+        // decreasing numbers
+        j = i - 1;
+
+        while (j >= 1) {
+            cout << j << " ";
+            j--;
+        }
+
+        cout << '\n';
+        i++;
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        solve();
+        cout << '\n';
+    }
+
+    return 0;
+}
