@@ -1,0 +1,106 @@
+Description
+Given two integers N and M, print a hollow rectangle pattern of length N and width M using the '*' character.
+
+A hollow rectangle is a rectangle where the borders are filled with '*' and the interior is empty (spaces).
+
+Input Format
+The first line contains an integer T denoting the number of test cases.
+For each test case, there is a line containing two numbers N and M, the length and width of the rectangle.
+
+Output Format
+For each test case, print the pattern.
+
+Constraints
+1 ≤ T ≤ 100
+2 ≤ N, M ≤ 200
+
+Sample Input 1
+1
+2 2
+
+Sample Output 1
+**
+**
+
+Sample Input 2
+2
+4 4
+4 4
+
+Sample Output 2
+
+---
+
+* *
+* *
+
+---
+
+---
+
+* *
+* *
+
+---
+
+Sample Input 3
+1
+4 5
+
+Sample Output 3
+
+---
+
+* *
+* *
+
+---
+
+Note
+In Sample Input 1, for N = 2 and M = 2, the rectangle is:
+
+**
+**
+
+In Sample Input 3, for N = 4 and M = 5, the rectangle is:
+
+---
+
+* *
+* *
+
+---
+
+In Sample Input 2, there are two test cases with N = 4 and M = 4, so the pattern is printed twice, each separated by a blank line as per the code's output.
+
+
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+int t;
+cin>>t;
+while(t--)
+{
+    int a,b;
+    cin>>a>>b;
+    for(int i = 1; i<= a; i++)
+    {
+        for(int j = 1;j <= b; j++)
+        {
+           if (i == 1 || i == a || j == 1 || j == b) {
+                    cout << "*";
+                } else {
+                    cout << " ";  
+                }
+        }
+        cout<<endl;
+    }
+   
+}
+
+
+
+}
