@@ -1,0 +1,130 @@
+Description
+Write a program to print a pyramid pattern of height N. See the sample examples.
+
+Input Format
+The first line contains the number of test cases, T.
+
+A line containing an integer N, denoting the pyramid's height.
+
+Output Format
+For each test case, print the pyramid pattern of height N using '*' symbols.
+Print the outputs for different test cases consecutively without any separator.
+
+Constraints
+1 ≤ T ≤ 100
+1 ≤ N ≤ 100
+
+Sample Input 1
+1
+2
+
+Sample Output 1
+*
+
+---
+
+Sample Input 2
+2
+4
+7
+
+Sample Output 2
+*
+* * *
+
+---
+
+---
+
+```
+        *   
+      * * *   
+    * * * * *   
+  * * * * * * *   
+* * * * * * * * *   
+```
+
+---
+
+---
+
+Sample Input 3
+1
+5
+
+Sample Output 3
+*
+* * *
+* * * * *
+
+---
+
+---
+
+Note
+For the first test case, the value of N is 2.
+The pyramid pattern printed is:
+
+*
+
+---
+
+Explanation:
+
+Line 1:
+(2 − 1) = 1 space (each space is two actual spaces), and
+(2 × 1 − 1) = 1 '*' symbol.
+
+Line 2:
+(2 − 2) = 0 spaces, and
+(2 × 2 − 1) = 3 '*' symbols.
+
+Hence, the pyramid of height 2 is printed accordingly.
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int rows;
+    cin >> rows;
+
+    int i = 1;
+
+    while (i <= rows) {
+
+        int space = 1;
+
+        // print leading spaces
+        while (space <= rows - i) {
+            cout << "  ";
+            space++;
+        }
+
+        int k = 0;
+
+        // print stars
+        while (k != 2 * i - 1) {
+            cout << "* ";
+            k++;
+        }
+
+        cout << '\n';
+        i++;
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
