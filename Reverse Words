@@ -1,0 +1,140 @@
+Here is the plain text of the problem statement:
+
+```text id="reversewords"
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+
+Given a string S. For each word in S, reverse its letters then print it.
+
+Note:
+- Words are separated by spaces.
+- If there are multiple spaces between the words, then you need to remove them.
+
+Example:
+
+Input:
+word1 word2 word3
+
+Output:
+1drow 2drow 3drow
+
+Input Format
+
+One line contains a string S.
+
+Output Format
+
+Print the answer required above.
+
+Constraints
+
+1 ≤ |S| ≤ 10^6
+
+where |S| is the length of the string.
+
+The string consists of lowercase and uppercase English letters and spaces.
+
+Sample Input 1
+
+I love you
+
+Sample Output 1
+
+I evol uoy
+
+Sample Input 2
+
+We are a happy family
+
+Sample Output 2
+
+eW era a yppah ylimaf
+
+Sample Input 3
+
+You love me
+
+Sample Output 3
+
+uoY evol em
+
+Note
+
+In each test case, each word in the input string is reversed individually, and the words are printed in the same order separated by single spaces.
+
+Examples:
+
+- "I" → "I"
+- "love" → "evol"
+- "you" → "uoy"
+
+So:
+
+Input:
+I love you
+
+Output:
+I evol uoy
+```
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define endl "\n" // optional, better to avoid redefining endl
+
+void solve()
+{
+    string s;
+    getline(cin, s);
+    string ans = "";
+
+    int i = 0;
+    int n = s.size();
+
+    while(i < n)
+    {
+        while(i < n && s[i] == ' ')
+        {
+            i++;
+        }
+
+        int j = i;
+        string part = "";
+        while(j < n && s[j] != ' ')
+        {
+            part += s[j];
+            j++;
+        }
+
+        reverse(part.begin(),part.end());
+
+        if(!ans.empty())
+        {
+            ans += ' ';
+        }
+        ans += part;
+        i = j;
+    }
+    
+        cout << ans;
+    
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t = 1;
+    // cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
