@@ -1,0 +1,120 @@
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+Given two strings S and T. Print a new string that contains the following:
+
+* The first letter of the string S followed by the first letter of the string T.
+* The second letter of the string S followed by the second letter of the string T.
+* And so on...
+
+In other words, the new string should be:
+
+(S₀ + T₀ + S₁ + T₁ + ...)
+
+Note: If the length of S is greater than the length of T then you have to add the rest of S letters at the end of the new string and vice versa.
+
+Input Format
+The first line contains an integer N, the number of test cases.
+Each of the N following lines contains two strings S and T consisting of lower and upper English letters.
+
+Output Format
+For each test case, print the required string.
+
+Constraints
+1 ≤ N ≤ 50
+1 ≤ |S|, |T| ≤ 50
+
+Sample Input 1
+2
+ipAsu ccsit
+ey gpt
+
+Sample Output 1
+icpcAssiut
+egypt
+
+Note
+
+Test Case 1:
+S = "ipAsu", T = "ccsit"
+
+We combine letters as:
+
+'i' + 'c' = "ic"
+'p' + 'c' = "pc"
+'A' + 's' = "As"
+'s' + 'i' = "si"
+'u' + 't' = "ut"
+
+Resulting in "icpcAssiut"
+
+Test Case 2:
+S = "ey", T = "gpt"
+
+We combine up to the length of S:
+
+'e' + 'g' = "eg"
+'y' + 'p' = "yp"
+
+Remaining letter in T: 't'
+
+Add the remaining letter 't' at the end.
+
+Resulting in "egypt"
+
+
+#include<iostream>
+typedef long long ll;
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+    string s,t;
+    cin>>s>>t;
+    int i = 0;
+    int j = 0;
+    int n = s.size();
+    int m = t.size();
+    string ans;
+    bool turn = true;
+    while(i < n && j < m)
+    {
+        if(turn)
+        {
+            ans += s[i];
+            i++;
+            
+        }else{
+            ans += t[j];
+            j++;
+        
+        }
+        turn = !turn;
+    }
+    while(i < n)
+    {
+        ans += s[i];
+        i++;
+    }
+    while(j<m)
+    {
+        ans += t[j];
+        j++;
+    }
+    cout<<ans<<endl;
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+}
