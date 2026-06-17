@@ -1,0 +1,122 @@
+Here is the plain text of the problem statement:
+
+```text
+Time Limit: 5 sec
+Memory: 256 MB
+
+Description
+
+Given a number N and two arrays A, B of N numbers. Determine if B is a permutation of A or not.
+
+Note: A permutation is an arrangement of all or part of a set of objects.
+
+For example: The arrays [2,1,3], [3,2,1], and [2,3,1] are permutations of the array [1,2,3].
+
+Input Format
+
+The first line contains T, the number of test cases.
+
+For each test case:
+
+- The first line contains an integer N, the number of elements in the arrays A and B.
+- The second line contains N space-separated integers each denoting an element of the array A.
+- The third line contains N space-separated integers each denoting an element of the array B.
+
+Output Format
+
+Print "yes" if array B is a permutation of A, otherwise print "no" without quotations.
+
+Constraints
+
+1 ≤ T ≤ 10
+1 ≤ N ≤ 3 × 10^5
+1 ≤ Ai ≤ 10^7
+1 ≤ Bi ≤ 10^7
+
+It's guaranteed that the sum of N over all test cases does not exceed 3 × 10^5.
+
+Sample Input 1
+
+1
+4
+4 2 3 7
+2 3 4 9
+
+Sample Output 1
+
+no
+
+Sample Input 2
+
+2
+4
+4 2 3 7
+2 3 4 9
+5
+5 1 1 9 3
+1 9 1 5 3
+
+Sample Output 2
+
+no
+yes
+
+Note
+
+In Sample Input 1, after sorting both arrays, they are not equal. Therefore, the output is "no".
+
+In Sample Input 2:
+- For the first test case, similar to Sample Input 1, the arrays are not equal after sorting, so the output is "no".
+- For the second test case, after sorting, both arrays are equal, so the output is "yes".
+```
+
+
+#include <iostream>
+#include <vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        vector<int>a(n);
+        vector<int>b(n);
+        unordered_map<int,int>mp;
+
+        for(int i = 0; i < n; i++)
+        {
+            cin>>a[i];
+            mp[a[i]]++;
+        }
+
+        for(int i = 0; i < n; i++)
+        {
+            cin>>b[i];
+            mp[b[i]]--;
+        }
+        
+        
+        bool isEqual = true;
+        for(auto it : mp)
+        {
+            if(it.second != 0)
+            {
+                isEqual = false;
+                break;
+            }
+        }
+
+        if(isEqual)
+            cout<<"yes"<<endl;
+        else   
+            cout<<"no"<<endl;
+
+    }
+    return 0;
+}
