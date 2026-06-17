@@ -1,0 +1,128 @@
+Here is the plain text of the problem statement:
+
+```text id="strabbr"
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+
+Given a string S. Print the original string if it's not too long, otherwise, print the special abbreviation.
+
+Note: The string is called too long if its length is strictly more than 10 characters. If the string is too long, then you have to print the string in the following manner:
+
+- Print the first character in the string.
+- Print the number of characters between the first and the last characters.
+- Print the last character in the string.
+
+For example:
+"localization" will be "l10n", and
+"internationalization" will be "i18n".
+
+Input Format
+
+The first line contains an integer T denoting the number of test cases.
+Each of the following T lines contains a string S.
+
+It's guaranteed that S contains only lowercase Latin letters.
+
+Output Format
+
+For each test case, print the resulting string.
+
+Constraints
+
+1 ≤ T ≤ 100
+1 ≤ |S| ≤ 100
+
+Sample Input 1
+
+4
+word
+localization
+internationalization
+pneumonoultramicroscopicsilicovolcanoconiosis
+
+Sample Output 1
+
+word
+l10n
+i18n
+p43s
+
+Sample Input 2
+
+2
+codeforces
+algozenith
+
+Sample Output 2
+
+codeforces
+algozenith
+
+Sample Input 3
+
+5
+arijit
+biswas
+arijitbiswas
+biswasarijit
+arijitarijitbiswasbiswas
+
+Sample Output 3
+
+arijit
+biswas
+a10s
+b10t
+a22s
+
+Note
+
+In the first test case:
+
+- "word" is not too long (length 4 ≤ 10), so we print it as is.
+- "localization" has length 12 > 10, so we abbreviate it to "l10n".
+- "internationalization" has length 20 > 10, abbreviated as "i18n".
+- "pneumonoultramicroscopicsilicovolcanoconiosis" has length 45 > 10, abbreviated as "p43s".
+
+In the second test case:
+
+- "codeforces" and "algozenith" are not too long (lengths 10 and 10), so we print them as is.
+
+In the third test case:
+
+- "arijit" and "biswas" are not too long, so we print them as is.
+- "arijitbiswas" has length 12 > 10, abbreviated as "a10s".
+- "biswasarijit" has length 12 > 10, abbreviated as "b10t".
+- "arijitarijitbiswasbiswas" has length 24 > 10, abbreviated as "a22s".
+```
+
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+   int t;
+   string s;
+    cin>>t;
+    for(int i= 0;i<t;i++)
+    {
+       cin>>s;
+       int word_size = s.length();
+
+       if(word_size>10)
+       {
+           auto first_char = s.front();
+           auto last_char = s.back();
+
+           int word_size_old = ((s.length()) - 2) ;
+           cout<<first_char<<""<<word_size_old<<""<<last_char<<endl;
+       }
+       else{
+        cout<<""<<s<<endl;
+       }
+    }
+    return 0;
+}
