@@ -1,0 +1,115 @@
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+Given two numbers N and M, a 2D array A of size N × M and a number X. Determine whether X exists in the 2D array A or not.
+
+Input Format
+First line contains an integer T, the number of test cases.
+First line of each test case contains two integers N and M separated by a space.
+Next N lines contain M space-separated integers.
+Next line contains an integer X.
+
+Output Format
+Print will take number if the number doesn't exist in the 2D array otherwise, print will not take number.
+
+Constraints
+2 ≤ N, M ≤ 100
+1 ≤ A[i][j] ≤ 10^5
+0 ≤ X ≤ 10^5
+
+Sample Input 1
+1
+2 2
+1 2
+3 4
+3
+
+Sample Output 1
+will not take number
+
+Sample Input 2
+2
+2 2
+1 2
+3 4
+3
+2 2
+1 2
+3 4
+10
+
+Sample Output 2
+will not take number
+will take number
+
+Note
+
+Sample Input 1:
+We have a 2 × 2 matrix:
+1 2
+3 4
+
+The number to search is X = 3, which exists in the matrix. Hence, we print "will not take number".
+
+Sample Input 2:
+
+First test case:
+Matrix:
+1 2
+3 4
+
+X = 3, which exists in the matrix. So, we print "will not take number".
+
+Second test case:
+Matrix:
+1 2
+3 4
+
+X = 10, which does not exist in the matrix. So, we print "will take number".
+
+
+
+#include<iostream>
+typedef long long ll;
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,m;
+        cin>>n>>m;
+        int arr[n][m];
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < m; j++)
+            {
+                cin>>arr[i][j];
+            }
+        }
+        int x;
+        cin>>x;
+        bool flag = false;
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < m; j++)
+            {
+                if(x == arr[i][j])
+                {
+                    flag = true;
+                }
+            }
+        }
+        if(!flag)
+        {
+            cout<<"will take number"<<endl;
+        }else{
+            cout<<"will not take number"<<endl;
+        }
+    }
+}
