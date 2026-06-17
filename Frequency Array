@@ -1,0 +1,87 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int t;
+    cin >> t;
+
+    while (t--)
+    {
+        int n, m;
+        cin >> n >> m;
+
+        int arr[n];
+        int count[(int)(1e5+1)] = {0};
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+            count[arr[i]]++;
+        }
+
+        for (int i = 1; i <= m; i++)
+        {
+            cout << count[i] << "\n";
+        }
+        
+    }
+
+    return 0;
+}
+
+
+Here is the plain text of the problem statement:
+
+```text
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+
+Given 2 numbers N, M and an array A of N numbers. For every number from 1 to M, print how many times this number appears in this array.
+
+Input Format
+
+The first line contains T, the number of test cases.
+
+For each test case:
+- The first line contains two space separated integers N and M.
+- The second line contains N space separated integers each denoting an element of the array A.
+
+Output Format
+
+Print M lines, the i-th line should contain the number of times that the number i appears in A.
+
+Constraints
+
+1 ≤ T ≤ 10
+1 ≤ N, M ≤ 10^5
+1 ≤ A[i] ≤ M
+
+Sample Input 1
+
+1
+10 5
+1 2 3 4 5 3 2 1 5 3
+
+Sample Output 1
+
+2
+2
+3
+1
+2
+
+Note
+
+Numbers from 1 to 5 appear in the array as follows:
+- 1 appears 2 times in the array.
+- 2 appears 2 times in the array.
+- 3 appears 3 times in the array.
+- 4 appears once in the array.
+- 5 appears 2 times in the array.
+```
