@@ -1,0 +1,183 @@
+Here is the plain text of the problem statement:
+
+```text
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+
+Given two numbers N, Q and a string S of size N, followed by Q lines of the following queries:
+
+- pop_back : remove the last character in the string.
+- front : print the first character in the string.
+- back : print the last character in the string.
+- sort l r : where 1 ≤ l, r ≤ |S|, sort all characters of S from l to r.
+- reverse l r : where 1 ≤ l, r ≤ |S|, reverse all characters of S from l to r.
+- print pos : where 1 ≤ pos ≤ |S|, print the character at index pos.
+- substr l r : where 1 ≤ l, r ≤ |S|, print substring of S from l to r.
+- push_back x : add character x to the end of the string.
+
+Note: If l > r, then swap them.
+
+For each query, print the answer associated with it in a single line.
+
+It's guaranteed that in the first 7 types of queries, the string is not empty.
+
+It's recommended to use built-in string functions.
+
+Input Format
+
+The first line contains two integers N, Q, where N denotes the size of the string and Q the number of queries.
+
+The second line contains the string S consisting of only lowercase English letters.
+
+Next Q lines contain the queries.
+
+Output Format
+
+For each query, print the answer associated with it in a single line. If a query does not require an output, do not print anything.
+
+Constraints
+
+1 ≤ N, Q ≤ 10^3
+
+Sample Input 1
+
+18 8
+assiutinupperegypt
+substr 1 6
+sort 5 8
+pop_back
+back
+reverse 1 6
+front
+push_back i
+print 4
+
+Sample Output 1
+
+assiut
+p
+n
+s
+
+Sample Input 2
+
+10 5
+algozenith
+sort 5 8
+reverse 3 6
+sort 2 5
+push_back a
+substr 1 10
+
+Sample Output 2
+
+aeilognzth
+
+Sample Input 3
+
+10 8
+algozenith
+substr 5 6
+sort 5 8
+pop_back
+back
+reverse 5 6
+front
+push_back a
+print 5
+
+Sample Output 3
+
+ze
+t
+a
+i
+
+Note
+
+Test Case 1: After performing the queries:
+
+- substr 1 6 outputs "assiut".
+- sort 5 8 sorts characters from position 5 to 8.
+- pop_back removes the last character of the string.
+- back outputs the last character, which is 'p'.
+- reverse 1 6 reverses characters from position 1 to 6.
+- front outputs the first character, which is 'n'.
+- push_back i adds 'i' to the end of the string.
+- print 4 outputs the character at position 4, which is 's'.
+
+Test Case 2: After performing the queries:
+
+- sort 5 8 sorts characters from position 5 to 8.
+- reverse 3 6 reverses characters from position 3 to 6.
+- sort 2 5 sorts characters from position 2 to 5.
+- push_back a adds 'a' to the end of the string.
+- substr 1 10 outputs the substring from position 1 to 10.
+
+Test Case 3: After performing the queries:
+
+- substr 5 6 outputs "ze".
+- sort 5 8 sorts characters from position 5 to 8.
+- pop_back removes the last character of the string.
+- back outputs the last character, which is 't'.
+- reverse 5 6 reverses characters from position 5 to 6.
+- front outputs the first character, which is 'a'.
+- push_back a adds 'a' to the end of the string.
+- print 5 outputs the character at position 5, which is 'i'.
+```
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void solution() {
+    int size, query;
+    cin >> size >> query;
+    string s; cin >> s;
+    int l, r;
+    while (query--) {
+        string type; cin >> type;
+        if (type == "pop_back") {
+            s.pop_back();
+        } else if (type == "front") {
+            cout << s.front() << endl;
+        } else if (type == "back") {
+            cout << s.back() << endl;
+        } else if (type == "sort") {
+            cin >> l >> r;
+            if (l > r) {
+                swap(l, r);
+            }
+            sort(s.begin() + l - 1, s.begin() + r);
+        } else if (type == "reverse") {
+            cin >> l >> r;
+            if (l > r) {
+                swap(l, r);
+            }
+            reverse(s.begin() + l - 1, s.begin() + r);
+        } else if (type == "print") {
+            int pos; cin >> pos;
+            cout << s[pos - 1] << endl;
+        } else if (type == "substr") {
+            cin >> l >> r;
+            if (l > r) {
+                swap(l, r);
+            }
+            string substr = s.substr(l - 1, r - l + 1);
+            cout << substr << endl;
+        } else {
+            char c; cin >> c;
+            s.push_back(c);
+        }
+    }
+}
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    solution();
+    return 0;
+}
