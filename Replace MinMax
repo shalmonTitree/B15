@@ -1,0 +1,83 @@
+Here is the plain text of the problem statement you pasted:
+
+```
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+
+Given an integer N and an array A of N distinct numbers. Your task is to find the minimum and maximum numbers among them, swap these two numbers, and then print the array after the swap.
+
+Input Format
+
+The first line contains T, the number of test cases.
+
+For each test case:
+- The first line contains an integer N, the number of elements in the array.
+- The second line contains N space-separated integers denoting the elements of the array.
+
+It's guaranteed that all numbers are distinct.
+
+Output Format
+
+Print the array after the replacement operation.
+
+Constraints
+
+1 ≤ T ≤ 10
+2 ≤ N ≤ 1000
+-10^5 ≤ A[i] ≤ 10^5
+
+Sample Input 1
+
+1
+5
+4 1 3 10 8
+
+Sample Output 1
+
+4 10 3 1 8
+
+Note
+
+First, find the minimum and maximum numbers in the array [4, 1, 3, 10, 8], which are 1 and 10 respectively. By swapping these two numbers, the array becomes [4, 10, 3, 1, 8].
+```
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        vector<int>v(n);
+        for(int i = 0; i < n; i++)
+        {
+            cin>>v[i];
+        }
+       int maxele = 0;
+        int minele = 0;
+        for(int i = 0; i < n; i++)
+        {
+            if(v[i] > v[maxele])
+            {
+                maxele = i;
+            }
+            if(v[i] < v[minele])
+            {
+                minele = i;
+            }
+        }
+        swap(v[maxele],v[minele]);
+
+        for(int i = 0; i < n; i++)
+        {
+            cout<<v[i]<<" ";
+        }
+    }
+    return 0;
+}
