@@ -1,0 +1,105 @@
+Here is the plain text of the problem statement:
+
+```text id="charfreq"
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+
+Given a string S. Determine how many times does each letter occur in S.
+
+Input Format
+
+Only one line contains the string S.
+
+Output Format
+
+For each character that appears in S, print a single line containing the following format:
+
+"X : Y"
+
+where:
+- X is the letter.
+- Y is the number of times that letter X occurred in S.
+
+Constraints
+
+1 ≤ |S| ≤ 10^7
+
+where |S| is the length of the string, and it consists of only lowercase English letters.
+
+Sample Input 1
+
+aaabbc
+
+Sample Output 1
+
+a : 3
+b : 2
+c : 1
+
+Sample Input 2
+
+abcdef
+
+Sample Output 2
+
+a : 1
+b : 1
+c : 1
+d : 1
+e : 1
+f : 1
+
+Sample Input 3
+
+regff
+
+Sample Output 3
+
+e : 1
+f : 2
+g : 1
+r : 1
+
+Note
+
+For each sample input, we count the occurrences of each letter in the given string.
+
+In Sample Input 1, the string is "aaabbc". The counts are:
+- 'a' occurs 3 times.
+- 'b' occurs 2 times.
+- 'c' occurs 1 time.
+
+In Sample Input 2, the string is "abcdef". Each letter occurs exactly once.
+
+In Sample Input 3, the string is "regff". The counts are:
+- 'e' occurs 1 time.
+- 'f' occurs 2 times.
+- 'g' occurs 1 time.
+- 'r' occurs 1 time.
+
+Note that the output is printed in alphabetical order of the characters that appear in the string.
+```
+
+#include<iostream>
+typedef long long ll;
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    string s;
+    cin>>s;
+    map<char,int>mp;
+    
+    for(auto it : s)
+    {
+        mp[it]++;
+    }
+    for(auto it : mp)
+    {
+        cout<<it.first<<" : "<<it.second<<endl;
+    }
+}
