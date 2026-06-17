@@ -1,0 +1,92 @@
+Time Limit: 1 sec
+Memory: 256 MB
+
+Description
+Given a number N and a 2D array A of size N × N. Print the absolute difference between the summation of its two diagonals (primary diagonal and secondary diagonal).
+
+Input Format
+The first line contains T, the number of test cases.
+For each test case:
+
+The first line contains an integer N.
+Next N lines contain N space-separated integers each, denoting the elements of the array A.
+
+Output Format
+For each test case, print the absolute difference between the summation of the matrix's main diagonals.
+
+Constraints
+1 ≤ T ≤ 10
+1 ≤ N ≤ 100
+−100 ≤ A[i] ≤ 100
+
+Sample Input 1
+1
+4
+1 5 12 1
+2 -4 6 7
+3 8 5 9
+3 5 23 -6
+
+Sample Output 1
+22
+
+Note
+
+First, compute the sum of the primary diagonal elements:
+
+Positions (1,1), (2,2), (3,3), (4,4)
+
+Sum:
+1 + (−4) + 5 + (−6) = −4
+
+Then, compute the sum of the secondary diagonal elements:
+
+Positions (1,4), (2,3), (3,2), (4,1)
+
+Sum:
+1 + 6 + 8 + 3 = 18
+
+Finally, compute the absolute difference:
+
+|−4 − 18| = |−22| = 22
+
+
+
+#include<iostream>
+typedef long long ll;
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int arr[n][n];
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+                cin>>arr[i][j];
+            }
+        }
+        int sum1 = 0;
+        int sum2 = 0;
+        for(int i = 0; i < n; i++)
+        {
+            
+            
+                sum1 += arr[i][i];
+
+                sum2 += arr[i][n-1-i];
+
+            
+        }
+        cout<<abs(sum1-sum2)<<endl;
+        
+    }
+}
