@@ -1,0 +1,120 @@
+Time Limit: 4 sec
+Memory: 256 MB
+
+Description
+Given an array of N integers and Q queries and an integer K. Initially, all the elements of the array have value 0.
+
+In each query 3 integers A, L, R is given, which means perform GP addition
+
+Arr[L] += A
+
+Arr[L+1] += A * K
+
+Arr[L+2] += A * K * K
+
+Arr[L+3] += A * K * K * K
+
+.
+
+.
+
+.
+
+.
+
+Arr[R] += A * (K^(R-L))
+
+After performing all the operations, print the final array % 10^9+7.
+
+Input Format
+The first line contains three space-separated integers N, Q, K where 1 <= N <= 10^6, 1 <= Q <= 10^6, 1 <= K <= 10^9.
+
+Next Q lines contain three space-separated integers A, L, R where 0 <= A <= 10^4, 1 <= L <= R <= N.
+
+Output Format
+Print the N space-separated integers representing the final array % 10^9+7.
+
+Constraints
+
+Sample Input 1
+
+```text
+5 5 2
+3 1 5
+4 2 2
+6 3 5
+9 5 5
+4 2 4
+```
+
+Sample Output 1
+
+```text
+3 14 26 52 81
+```
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+const ll MOD = 1000000007;
+
+ll modpow(ll a, ll b)
+{
+    ll res = 1;
+    while (b)
+    {
+        if (b & 1) res = res * a % MOD;
+        a = a * a % MOD;
+        b >>= 1;
+    }
+    return res;
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int N, Q;
+    ll K;
+    cin >> N >> Q >> K;
+
+    vector<ll> powK(N + 2), invPowK(N + 2);
+    powK[0] = 1;
+
+    for (int i = 1; i <= N; i++)
+        powK[i] = powK[i - 1] * K % MOD;
+
+    for (int i = 0; i <= N; i++)
+        invPowK[i] = modpow(powK[i], MOD - 2);
+
+    vector<ll> diff(N + 3, 0);
+
+    while (Q--)
+    {
+        ll A, L, R;
+        cin >> A >> L >> R;
+
+        ll val = A % MOD * invPowK[L] % MOD;
+
+        diff[L] = (diff[L] + val) % MOD;
+        diff[R + 1] = (diff[R + 1] - val + MOD) % MOD;
+    }
+
+    ll cur = 0;
+
+    for (int i = 1; i <= N; i++)
+    {
+        cur = (cur + diff[i]) % MOD;
+
+        ll arr_i = cur * powK[i] % MOD;
+
+        cout << arr_i;
+        if (i < N) cout << ' ';
+    }
+    cout << '\n';
+
+    return 0;
+}
